@@ -19,7 +19,21 @@
 </head>
 <body>
     <h1>{{ error }}</h1>
+    <br>
+    <h2>Debugging will be retried in <span id="countdown">5</span> seconds.</h2>
+    <script type="text/javascript">
+        var timeleft = 5;
+        var downloadTimer = setInterval(function() {
+            timeleft--;
+            document.getElementById("countdown").textContent = timeleft;
+            if (timeleft === 0) {
+                clearInterval(downloadTimer);
+                location.reload();
+            }
+        }, 1000);
+    </script>
+    <br>
     <hr>
-    <a href="https://www.twitter.com/hocestnonsatis" >yourcode.zip</a>
+    <a href="https://www.twitter.com/hocestnonsatis">yourcode.zip</a>
 </body>
 </html>

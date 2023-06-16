@@ -41,8 +41,15 @@ def show_error():
     error_category = random.choice(list(error_messages.keys()))
     random_error = random.choice(error_messages[error_category])
     title = error_category
+    # countdown 5'den geriye sayar ve sayfa yenilenir.
 
-    return render_template('error.html', error=title + ': ' + random_error, title=title)
+    countdown = 5
+    refresh_current_page()
+
+    return render_template('error.html', error=title + ': ' + random_error, title=title, message=f"Your Code will be try debug in {countdown} seconds.")
+
+def refresh_current_page():
+    return render_template('error.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
